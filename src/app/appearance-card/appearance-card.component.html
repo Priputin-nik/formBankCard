@@ -1,13 +1,17 @@
 <section class="card">
-    <p class="number-card">dsdsfs</p>
+    <p class="number-card" [ngClass]="{'active-input': arrayCondition['cardNumber']}">{{ value.cardNumber | cardNumber }}</p>
+    <div class="cvv-container" [ngClass]="{'active-input': arrayCondition['cvv']}">
+        <p>Cvv:</p>
+        <p>{{ value.cvv }}</p>
+    </div>
     <div class="block-name-expires">
-        <div class="parameters">
+        <div class="parameters card-holder" [ngClass]="{'active-input': arrayCondition['cardName']}">
             <p>Card Holder</p>
-            <p>NAME1123123123</p>
+            <p>{{ value.cardName | uppercase }}</p>
         </div>
-        <div class="parameters">
+        <div class="parameters" [ngClass]="{'active-input': arrayCondition['month'] || arrayCondition['year']}">
             <p>Expires</p>
-            <p>MM/YY</p>
+            <p>{{ value.month }} / {{ value.year | slice: 2 }}</p>
         </div>
     </div>
 </section>

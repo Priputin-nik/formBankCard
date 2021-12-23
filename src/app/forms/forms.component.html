@@ -1,21 +1,31 @@
 <section class="form">
-    <label>Card Number
-        <input type="text" class="textNumberInput" >
-    </label>
-    <label>Card Name
-        <input type="text" class="textNumberInput">
-    </label>
-    <div class="others-parameters">
-    <label>Expiration Date
-        <input type="text" class="date">
-    </label>
-    <label class="date-label">&#160;
-        <input type="text" class="date">
-    </label>
-    <label class="cvv-label">CVV
-        <input type="text" class="cvv">
-    </label>
+    <form [formGroup]="cardDataReactiveForm">
+        <mat-form-field class="number-name">
+        <mat-label>Card Number</mat-label>
+        <input (focus)="activateRenderArea($event)" (blur)="activateRenderArea($event)"  matInput mask="0000 0000 0000 0000" type="text" class="textNumberInput" formControlName="cardNumber">
+        </mat-form-field>
+        <mat-form-field class="number-name">
+            <mat-label>Card Name</mat-label>
+        <input (focus)="activateRenderArea($event)" (blur)="activateRenderArea($event)" matInput  mask="S{9}" type="text" class="textNumberInput" formControlName="cardName">
+        </mat-form-field>
+        <p class="title-date">Expiration date</p>
+    <div class="other-parameters">
+        <mat-form-field class="date-block">
+            <mat-label>Month</mat-label>
+            <mat-select (focus)="activateRenderArea($event)" (blur)="activateRenderArea($event)" class="date" formControlName="month">
+                <mat-option [value]="month" *ngFor="let month of months">{{ month }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="date-block">
+            <mat-label>Year</mat-label>
+            <mat-select (focus)="activateRenderArea($event)" (blur)="activateRenderArea($event)" class="date" formControlName="year">
+                <mat-option [value]="year" *ngFor="let year of years">{{ year }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="cvv">
+            <mat-label>CVV</mat-label>
+            <input (focus)="activateRenderArea($event)" (blur)="activateRenderArea($event)" matInput mask="000" type="text" class="cvv" formControlName="cvv">
+        </mat-form-field>
     </div>
+    </form>
 </section>
-<!-- [formControl]="numberCard" -->
-<!-- [(ngModel)]="username" -->

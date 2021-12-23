@@ -6,20 +6,32 @@ import { AppComponent } from './app.component';
 import { AppearanceCardComponent } from './appearance-card/appearance-card.component';
 import { FormsComponent } from './forms/forms.component';
 import { WrapperComponent } from './wrapper/wrapper.component';
-import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
+import { CardNumberPipe } from './card-number.pipe';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     AppearanceCardComponent,
     FormsComponent,
-    WrapperComponent
-  ],
+    WrapperComponent,
+    CardNumberPipe,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

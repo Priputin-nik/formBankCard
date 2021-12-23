@@ -24,6 +24,9 @@ p {
     font-size: 30px;
     user-select: none;
     margin-top: 40px;
+    height: 35px;
+    text-align: center;
+    padding-top: 15px;
 }
 
 .block-name-expires {
@@ -34,4 +37,18 @@ p {
 .parameters {
     display: flex;
     flex-direction: column;
+}
+
+.card-holder {
+    width: 260px;
+}
+
+.cvv-container {
+    display: inline-block;
+    width: 80px;
+}
+
+.active-input {
+    border: 2px solid white;
+    border-radius: 5px;
 }
